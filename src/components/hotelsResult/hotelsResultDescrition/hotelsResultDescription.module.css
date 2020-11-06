@@ -1,0 +1,33 @@
+.hotelsResultDescription{
+    padding: 20px 30px 11px;
+    width: 570px;
+}
+.hotelName{
+    font-size: 24px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 30px;
+    color: #007bff;
+}
+.hotelCountry{
+    font: 20px Arsenal-Regular, sans-serif;
+    line-height: 25px;
+    color: #202060;
+}
+.hotelDetails{
+    font: 12px Arsenal-Regular, sans-serif;
+    line-height: 15px;
+    color: #202060;
+}
+.hotelDetailsValue{
+    font-size: 12px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 15px;
+    color: #202060;
+}
+.hotelsDetailsCols{
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+}

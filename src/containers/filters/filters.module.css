@@ -1,0 +1,9 @@
+.filters{
+    background-color: rgba(13, 13, 46, 0.6);
+    padding: 13px 17px 18px;
+    display: flex;
+}
+.filtersContainer{
+    margin: 15px auto;
+    width: fit-content;
+}

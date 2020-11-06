@@ -1,20 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
+import classes from './nights.module.css'
 
 const Nights = (props) => {
-    const [night, setNight] = useState('');
-
-    // sendNightsValue = () =>{
-    //     this.props.parentCallback()
-    // } 
-
-    handleChange(e) {
-        setNight(e.target.value)
-    }
-
     return (
-        <div>  
-            <input value={night} onChange={this.handleChange} placeholder='nights from'/>
-            <input placeholder='nights to'/>
+        <div>
+            <input className={classes.nightsInput} placeholder='nights from'/>
+            <input className={classes.nightsInput} placeholder='nights to'/>
         </div>
     );
 };

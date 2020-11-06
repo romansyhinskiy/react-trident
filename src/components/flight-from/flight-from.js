@@ -1,23 +1,85 @@
-import React, { Component } from 'react';
+// import React, {useState, useEffect} from 'react'
+// import classes from './flight-from.module.css'
+//
+// const Flight_from = () => {
+//     const ACCESS_TOKEN = '2c187-62875-55d85-b6d67-b60b3';
+//
+//     useEffect( ()=>{
+//         fetchFlightFromCities()
+//     }, []);
+//     const [flightFromCity, setFlightFromCity] = useState([])
+//
+//     const fetchFlightFromCities = async () => {
+//         const response =  await fetch(`https://export.otpusk.com/api/tours/fromCities?geoId=55&lang=ukr&access_token=${ACCESS_TOKEN}`)
+//         const citiesResponse = await response.json()
+//         setFlightFromCity(citiesResponse.fromCities)
+//     }
+//
+//     return (
+//
+//              <select className={classes.flightFromSelect}>
+//                  {flightFromCity.map(city => {
+//                       return (
+//                           <option id={city.id} key={city.id}>{city.name}</option>
+//                       )
+//                  })}
+//              </select>
+//          );
+// };
+//
+// export default Flight_from
 
-export default class Flight_from extends Component {
+import React, {Component} from 'react'
+import classes from './flight-from.module.css'
+import {connect} from 'react-redux'
+
+
+class Flight_from extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            flight_from : [
-                {city: 'Kyiv', id: 1},
-                {city: 'Lviv', id: 2},
-                {city: 'Odessa', id: 3}
-            ]
-        };
-      }
+        this.state = ({
+            flightFromCity: []
+        })
+    }
+
+    componentDidMount() {
+        this.fetchFlightFromCities()
+    }
+
+    fetchFlightFromCities = async () => {
+        const ACCESS_TOKEN = '2c187-62875-55d85-b6d67-b60b3';
+
+        const fetchCities = await fetch(`https://export.otpusk.com/api/tours/fromCities?geoId=55&lang=ukr&access_token=${ACCESS_TOKEN}`)
+        const CitiesData = await fetchCities.json()
+        this.setState({
+            flightFromCity: CitiesData.fromCities
+        })
+
+    }
+
     render() {
         return (
-            <select>
-                {this.state.flight_from.map((city, index)=>{
-                    return(<option key={city.id}>{city.city}</option>)
-                })}
-            </select>
-        );
+            <div>
+                <select
+                    className={classes.flightFromSelect}
+                    onChange={this.props.selectedCity}
+                >
+                   {this.state.flightFromCity.map(city => {
+                       return (
+                           <option id={city.id} key={city.id}>{city.name}</option>
+                       )
+                  })}
+              </select>
+            </div>
+        )
     }
 }
+function mapDispatchToProps(dispatch){
+    return{
+        selectedCity: e => {
+            const action = {type: 'SELECTED_FLIGHT_FROM_CITY', selectedFlightFromCity: e.target.selectedOptions[0].id}
+            dispatch(action)
+        }
+    }
+}
+export default connect(null, mapDispatchToProps)(Flight_from)

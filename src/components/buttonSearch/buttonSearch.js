@@ -1,8 +1,9 @@
 import React from 'react';
+import classes from './button.module.css'
 
-const ButtonSearch = () => {
+const ButtonSearch = props => {
     return (
-        <button className='btn btn-primary'>Search</button>
+        <button onClick={props.fetchHotels} className={classes.buttonSearch}>Search</button>
     );
 };
 

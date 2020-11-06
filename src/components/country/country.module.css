@@ -1,0 +1,8 @@
+.countrySelect{
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 2px;
+    width: 150px;
+    height: 40px;
+    background-color: #fff;
+}

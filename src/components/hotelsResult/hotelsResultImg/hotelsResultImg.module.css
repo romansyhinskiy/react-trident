@@ -1,0 +1,9 @@
+.hotelsResultImg{
+    width: 330px;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.hotelsResultImg img{
+    max-width: 100%;
+}
