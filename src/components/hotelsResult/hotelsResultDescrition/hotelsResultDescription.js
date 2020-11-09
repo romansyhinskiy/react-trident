@@ -1,12 +1,12 @@
 import React from 'react'
 import classes from './hotelsResultDescription.module.css'
 
-const HotelsResultDescription = () => {
+const HotelsResultDescription = props => {
     return (
         <div className={classes.hotelsResultDescription}>
             <div>
-                <p className={classes.hotelName}>Sharm Inn Amarein 4*</p>
-                <p className={classes.hotelCountry}>Єгипет, Шарм-ель-Шейх | Рейтинг: 4/10</p>
+                <p className={classes.hotelName}><span>{props.hotelName} </span><span>{props.hotelStars}*</span></p>
+                <p className={classes.hotelCountry}> <span>{props.hotelCountry}</span>, <span>{props.hotelsCity}</span> | Рейтинг: 4/10</p>
             </div>
             <div className={classes.hotelsDetailsCols}>
                 <div>

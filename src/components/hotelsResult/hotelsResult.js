@@ -6,9 +6,15 @@ import HotelsResultPrice from './hotelsResultPrice/hotelsResultPrice'
 
 const HotelsResult = props => {
     return (
+
         <div className={classes.hotelsResult}>
             <HotelsResultImg />
-            <HotelsResultDescription />
+            <HotelsResultDescription
+                hotelName={props.hotelName}
+                hotelCountry={props.hotelCountry}
+                hotelsCity={props.hotelsCity}
+                hotelStars={props.hotelStars}
+            />
             <HotelsResultPrice />
         </div>
     )
